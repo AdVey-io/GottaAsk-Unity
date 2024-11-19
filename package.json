@@ -1,0 +1,23 @@
+{
+  "name": "com.advey.gottaask",
+  "displayName": "GottaAsk SDK",
+  "version": "0.0.1",
+  "unity": "6000.0.24f1",
+  "description": "GottaAsk SDK for Unity",
+  "author": {
+    "name": "Fredrik Håkansson  / Advey",
+    "email": "fredrik@advey.io",
+    "url": "https://advey.io"
+  },
+  "keywords": [
+    "sdk",
+    "unity",
+    "advey",
+    "gottaask",
+    "android",
+    "ios"
+  ],
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  }
+}
