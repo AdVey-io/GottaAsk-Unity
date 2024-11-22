@@ -14,11 +14,11 @@ using GottaAsk;
 
 ## **Class**: `GottaAskSDK`
 
-The `GottaAskSDK` class is a static utility that facilitates initializing the SDK, displaying ads, and handling survey completion callbacks.
+The `GottaAskSDK` class is a static utility that facilitates initializing the SDK, displaying surveys, and handling survey completion callbacks.
 
 ### **Features**
 - Initialize the SDK with user-specific credentials.
-- Display ads on supported platforms.
+- Display surveys on supported platforms.
 - Handle survey completion events using delegates.
 
 ---
@@ -64,15 +64,15 @@ public static void Init(string userId, string apiToken)
 
 ---
 
-### **ShowAd**
+### **ShowSurvey**
 ```csharp
-public static void ShowAd()
+public static void ShowSurvey()
 ```
-- Displays an ad.
+- Displays a survey.
 - **Platform-Specific Behavior**:
   - **Editor**: No operation.
-  - **Android**: Loads and displays an ad using the Android bridge.
-  - **iOS**: Logs the ad display request (functionality to be implemented).
+  - **Android**: Loads and displays a survey using the Android bridge.
+  - **iOS**: Logs the survey display request (functionality to be implemented).
 
 ---
 
@@ -112,9 +112,9 @@ public class GottaAskDemo : MonoBehaviour
         Debug.Log("Survey completed with data: " + data);
     }
 
-    public void ShowSurveyAd()
+    public void ShowSurvey()
     {
-        GottaAskSDK.ShowAd();
+        GottaAskSDK.ShowSurvey();
     }
 }
 ```
