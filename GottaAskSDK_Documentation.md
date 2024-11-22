@@ -1,5 +1,5 @@
 
-# **GottaAsk SDK - Unity**
+# **GottaAsk SDK Documentation**
 
 The `GottaAskSDK` provides functionality for integrating surveys and ads into Unity projects, supporting Android and iOS platforms. Below is an overview of the API, usage, and platform-specific implementations.
 
