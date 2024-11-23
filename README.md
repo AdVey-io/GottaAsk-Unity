@@ -6,15 +6,15 @@ In order to use this package in your application, contact [fredrik@advey.io](mai
 
 ## Version
 
-Unity package version: `0.0.1`
-Android package version: `0.0.1`
-iOS package version: `0.0.1`
+- Unity package version: `0.0.1`
+- Android package version: `0.0.1`
+- iOS package version: `0.0.1`
 
 ## Documentation
 
 For detailed instructions on how to use this package, please refer to the [how-to](Documentation/HOWTO.md) file.
 
-# Dependencies
+## Dependencies
 
 Android dependencies are located in the `Assets/Plugins/Android` folder. 
 
