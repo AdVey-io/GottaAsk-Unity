@@ -3,6 +3,7 @@
   "displayName": "GottaAsk SDK",
   "version": "0.0.1",
   "unity": "6000.0",
+  "type": "library",
   "description": "GottaAsk Unity is a Unity package for integrating GottaAsk User Survey ads into your Unity Project. This package supports Unity based games running on Android and iOS.",
   "author": {
     "name": "AdVey AB",
@@ -19,5 +20,7 @@
     "surveys",
     "ads"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "com.google.external-dependency-manager": "1.2.183"
+  }
 }

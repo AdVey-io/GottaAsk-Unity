@@ -81,19 +81,19 @@ namespace GottaAsk
         /// </remarks>
         public static void HaveSurveys() { }
 
-        public static void SetUserAttributes(
-            string age = "",
-            string country = "",
-            string income = ""
-        )
-        {
-            Debug.Log("Editor: SetUserAttributes");
-        }
+        /// <summary>
+        /// Sets the user attributes for the current user.
+        /// This is helpful to target specific demographics with surveys.
+        /// </summary>
+        public static void SetUserAttributes(GottaAskDemographicData data) { }
 
-        public static void SetUserAttributes(Dictionary<string, string> attributes)
-        {
-            Debug.Log("Editor: SetUserAttributes");
-        }
+        /// <summary>
+        /// Sets the user attributes for the current user.
+        /// This is helpful to target specific demographics with surveys.
+        /// </summary>
+        public static void SetUserAttributes(int age = 0, string country = "", int income = 0) { }
+
+        private static void AddDemographicData(GottaAskDemographicData data) { }
 
         #endregion
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -122,27 +122,28 @@ namespace GottaAsk
             }
         }
 
-        public static void SetUserAttributes(
-            string age = null,
-            string country = null,
-            string income = null
-        )
+        public static void SetUserAttributes(GottaAskDemographicData data)
         {
-            if (_androidSDKReference != null)
-            {
-                _androidSDKReference.CallStatic("setUserAttributes", age, country, income);
-            }
-            else
-            {
-                Debug.LogError("Android Bridge is null. Did you forget to call Init()?");
-            }
+            AddDemographicData(data);
         }
 
-        public static void SetUserAttributes(map<string, string> attributes)
+        public static void SetUserAttributes(int age = 0, string country = null, int income = 0)
+        {
+            var data = new GottaAskDemographicData
+            {
+                age = age,
+                country = country,
+                income = income,
+            };
+            AddDemographicData(data);
+        }
+
+        private static void AddDemographicData(GottaAskDemographicData data)
         {
             if (_androidSDKReference != null)
             {
-                _androidSDKReference.CallStatic("setUserAttributes", attributes);
+                var jsonData = JsonUtility.ToJson(data);
+                _androidSDKReference.CallStatic("setGottaAskDemographicDataJson", jsonData);
             }
             else
             {
@@ -165,7 +166,7 @@ namespace GottaAsk
             Debug.Log("Android: ShowSurvey");
             if (_androidSDKReference != null)
             {
-                _androidSDKReference.CallStatic("loadSurvey");
+                _androidSDKReference.CallStatic("showSurvey");
             }
             else
             {
@@ -195,11 +196,7 @@ namespace GottaAsk
             Debug.Log("iOS: Init");
         }
 
-        public static void SetUserAttributes(
-            string age = "",
-            string country = "",
-            string income = ""
-        )
+        public static void SetUserAttributes(int age = "", string country = "", int income = "")
         {
             Debug.Log("iOS: SetUserAttributes");
         }
