@@ -18,7 +18,7 @@
 5. Enter the following details:
     - **Name**: OpenUPM
     - **URL**: `https://package.openupm.com`
-    - **Scope(s)**: `com.google`
+    - **Scope(s)**: `com.google.external-dependency-manager`
 6. Click `Save` to add the scoped registry.
 7. Go to `Window` > `Package Manager`.
 8. Click on the `+` button in the top left corner and select `Add package by name...`.
