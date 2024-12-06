@@ -6,7 +6,7 @@
 3. Click on the `+` button in the top left corner and select `Add package from git URL...`.
 4. Enter the following URL and click `Add`:
     ```
-    https://github.com/AdVey-io/GottaAskUnity.git
+    https://github.com/AdVey-io/GottaAsk-Unity.git
     ```
 
 ## Adding the External Dependency Manager via Scoped Registries
