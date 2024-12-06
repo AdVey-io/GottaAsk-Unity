@@ -14,7 +14,7 @@ In order to use this package in your application, contact [fredrik@advey.io](mai
 
 ## Documentation
 
-For detailed instructions on how to use this package, please refer to the [how-to](Documentation/HOWTO.md) file.
+For detailed instructions on how to use this package, please refer to the [how-to](Documentation~/HOWTO.md) file.
 
 ## Dependencies
 
