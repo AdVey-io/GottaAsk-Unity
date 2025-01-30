@@ -4,13 +4,11 @@ using UnityEngine;
 
 namespace GottaAsk
 {
-    public delegate void OnSurveyCompletedDelegate(string data);
+    public delegate void OnSurveyCompletedDelegate(GottaAskSurveyCompletedResponse response);
 
     public class GottaAskSDK : MonoBehaviour
     {
         public static GottaAskSDK _sdkInstance;
-        public delegate void SurveyCompletedCallback(string data);
-
         public static OnSurveyCompletedDelegate _onSurveyCompleted;
         public static OnSurveyCompletedDelegate onSurveyCompleted
         {
@@ -55,7 +53,7 @@ namespace GottaAsk
         /// <param name="apiKey">The API key for the specific app where this SDK is being used.</param>
         public static void Init(string userId, string apiKey)
         {
-            Debug.Log(
+            DebugLogger.Log(
                 "GottaAskSDK wont work in the editor. Please run on an Android or iOS device."
             );
         }
@@ -103,7 +101,7 @@ namespace GottaAsk
 
         public static void Init(string userId, string apiKey)
         {
-            Debug.Log("Android: Init");
+            DebugLogger.Log("Android: Init");
             InitUnityInstance();
             //Screen.orientation = ScreenOrientation.Portrait; //.LandscapeLeft;
             using (var _unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
@@ -117,7 +115,7 @@ namespace GottaAsk
                 }
                 else
                 {
-                    Debug.LogError("UnityPlayer is null");
+                    DebugLogger.LogError("UnityPlayer is null");
                 }
             }
         }
@@ -147,7 +145,7 @@ namespace GottaAsk
             }
             else
             {
-                Debug.LogError("Android Bridge is null. Did you forget to call Init()?");
+                DebugLogger.LogError("Android Bridge is null. Did you forget to call Init()?");
             }
         }
 
@@ -163,14 +161,14 @@ namespace GottaAsk
 
         public static void ShowSurvey()
         {
-            Debug.Log("Android: ShowSurvey");
+            DebugLogger.Log("Android: ShowSurvey");
             if (_androidSDKReference != null)
             {
                 _androidSDKReference.CallStatic("showSurvey");
             }
             else
             {
-                Debug.LogError("Android Reference is null. Did you forget to call Init()?");
+                DebugLogger.LogError("Android Reference is null. Did you forget to call Init()?");
             }
         }
 
@@ -185,7 +183,7 @@ namespace GottaAsk
             }
             else
             {
-                Debug.LogError("Android Bridge is null. Did you forget to call Init()?");
+                DebugLogger.LogError("Android Bridge is null. Did you forget to call Init()?");
             }
         }
         #endregion
@@ -193,32 +191,32 @@ namespace GottaAsk
         #region iOS
         public static void Init(string userId, string apiKey)
         {
-            Debug.Log("iOS: Init");
+            DebugLogger.Log("iOS: Init");
         }
 
         public static void SetUserAttributes(int age = "", string country = "", int income = "")
         {
-            Debug.Log("iOS: SetUserAttributes");
+            DebugLogger.Log("iOS: SetUserAttributes");
         }
 
         public static void SetUserAttributes(Dictionary<string, string> attributes)
         {
-            Debug.Log("iOS: SetUserAttributes");
+            DebugLogger.Log("iOS: SetUserAttributes");
         }
 
         private static void SetOnSurveyCompletedDelegate()
         {
-            Debug.Log("iOS: SetOnSurveyCompletedDelegate");
+            DebugLogger.Log("iOS: SetOnSurveyCompletedDelegate");
         }
 
         public static void ShowSurvey()
         {
-            Debug.Log("iOS: ShowSurvey");
+            DebugLogger.Log("iOS: ShowSurvey");
         }
 
         public static void HaveSurveys()
         {
-            Debug.Log("iOS: HaveSurveys");
+            DebugLogger.Log("iOS: HaveSurveys");
         }
         #endregion
 #endif
