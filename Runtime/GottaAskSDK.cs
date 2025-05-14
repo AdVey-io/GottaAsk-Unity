@@ -187,7 +187,7 @@ namespace GottaAsk
         public static IEnumerator<object> HaveSurveys(System.Action<bool> callback)
         {
             // Create the UnityWebRequest
-            UnityWebRequest request = UnityWebRequest.Get("http://10.43.122.43:8080/v1/survey");
+            UnityWebRequest request = UnityWebRequest.Get("https://app.gottaask.io/v1/survey");
             request.SetRequestHeader("Content-Type", "application/json"); // Required for JSON requests
             request.SetRequestHeader("X-GOTTAASK-API-KEY", API_KEY);
             request.SetRequestHeader("X-GOTTAASK-USER-ID", USER_ID);
