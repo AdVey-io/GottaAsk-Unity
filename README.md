@@ -8,7 +8,7 @@ In order to use this package in your application, contact [fredrik@advey.io](mai
 
 **Currently only supporting Android!**
 
-- Unity package version: `0.0.10`
+- Unity package version: `0.0.11`
 - Android package version: `0.1.1`
 - iOS package version: `N/A`
 
