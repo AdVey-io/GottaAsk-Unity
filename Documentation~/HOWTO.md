@@ -1,4 +1,3 @@
-
 # **GottaAsk SDK - Unity**
 
 The `GottaAskSDK` provides functionality for integrating surveys and ads into Unity projects, supporting Android and iOS platforms. Below is an overview of the API, usage, and platform-specific implementations.
@@ -85,6 +84,21 @@ private static void SetOnSurveyCompletedDelegate()
   - **Editor/iOS**: Logs the action.
   - **Android**: Sets a callback proxy for receiving events from the Android bridge.
 
+### **HaveSurveys**
+```csharp
+public static IEnumerator<object> HaveSurveys(System.Action<bool> callback)
+```
+- Checks if there are surveys available to be shown. Can be called before showing a survey.
+- **Parameters**:
+  - `callback`: Action that receives a boolean indicating if surveys are available.
+- **Returns**:
+  - An IEnumerator for coroutine support.
+
+#### **Platform-Specific Behavior**
+- **Editor**: Returns false through the callback.
+- **Android**: Makes an API request to check for available surveys.
+- **iOS**: Logs the action (functionality to be implemented).
+
 ---
 
 ## **Usage Example**
@@ -114,7 +128,17 @@ public class GottaAskDemo : MonoBehaviour
 
     public void ShowSurvey()
     {
-        GottaAskSDK.ShowSurvey();
+      // Check if surveys are available before showing
+      StartCoroutine(GottaAskSDK.HaveSurveys((hasSurveys) => {
+          if (hasSurveys)
+          {
+              GottaAskSDK.ShowSurvey();
+          }
+          else
+          {
+              Debug.Log("No surveys available at the moment");
+          }
+      }));
     }
 }
 ```

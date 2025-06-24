@@ -219,14 +219,19 @@ namespace GottaAsk
             DebugLogger.Log("iOS: Init");
         }
 
-        public static void SetUserAttributes(int age = "", string country = "", int income = "")
+        public static void SetUserAttributes(int age = 0, string country = null, int income = 0)
         {
             DebugLogger.Log("iOS: SetUserAttributes");
         }
 
-        public static void SetUserAttributes(Dictionary<string, string> attributes)
+        public static void SetUserAttributes(GottaAskDemographicData data)
         {
             DebugLogger.Log("iOS: SetUserAttributes");
+        }
+
+        private static void AddDemographicData(GottaAskDemographicData data)
+        {
+            DebugLogger.Log("iOS: AddDemographicData");
         }
 
         private static void SetOnSurveyCompletedDelegate()
