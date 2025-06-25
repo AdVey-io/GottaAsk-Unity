@@ -46,9 +46,8 @@ namespace GottaAsk
                 }
             }
         }
-
-#if UNITY_EDITOR
-        #region Editor
+#if UNITY_EDITOR  || UNITY_WEBGL || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_STANDALONE_LINUX
+        #region Other Platforms
 
         /// <summary>
         /// Initializes the GottaAsk SDK with required user and API key.
@@ -58,14 +57,18 @@ namespace GottaAsk
         public static void Init(string userId, string apiKey)
         {
             DebugLogger.Log(
-                "GottaAskSDK wont work in the editor. Please run on an Android or iOS device."
+                "GottaAskSDK wont work in the here. Please run on an Android or iOS device."
             );
         }
 
         /// <summary>
         /// Sets the delegate for the OnSurveyCompleted event.
         /// </summary>
-        private static void SetOnSurveyCompletedDelegate() { }
+        private static void SetOnSurveyCompletedDelegate() { 
+                        DebugLogger.Log(
+                "GottaAskSDK wont work in here. Please run on an Android or iOS device."
+            );
+         }
 
         /// <summary>
         /// Opens a full screen browser window and loads surveys from the GottaAsk server.
@@ -73,7 +76,11 @@ namespace GottaAsk
         /// <remarks>
         /// This method will not work in the Unity Editor, only on Android and iOS devices.
         /// </remarks>
-        public static void ShowSurvey() { }
+        public static void ShowSurvey() {
+            DebugLogger.Log(
+                "GottaAskSDK wont work in here. Please run on an Android or iOS device."
+            );
+         }
 
         /// <summary>
         /// Checks if there are surveys available to be shown. Can be called before calling ShowSurvey().
@@ -83,6 +90,10 @@ namespace GottaAsk
         /// </remarks>
         public static IEnumerator<object> HaveSurveys(System.Action<bool> callback)
         {
+            DebugLogger.Log(
+                "GottaAskSDK wont work in here. Please run on an Android or iOS device."
+            );
+            callback(false);
             yield return null;
         }
 
@@ -90,17 +101,30 @@ namespace GottaAsk
         /// Sets the user attributes for the current user.
         /// This is helpful to target specific demographics with surveys.
         /// </summary>
-        public static void SetUserAttributes(GottaAskDemographicData data) { }
+        public static void SetUserAttributes(GottaAskDemographicData data) { 
+            DebugLogger.Log(
+                "GottaAskSDK wont work in here. Please run on an Android or iOS device."
+            );
+         }
 
         /// <summary>
         /// Sets the user attributes for the current user.
         /// This is helpful to target specific demographics with surveys.
         /// </summary>
-        public static void SetUserAttributes(int age = 0, string country = "", int income = 0) { }
+        public static void SetUserAttributes(int age = 0, string country = "", int income = 0) { 
+            DebugLogger.Log(
+                "GottaAskSDK wont work in here. Please run on an Android or iOS device."
+            );
+         }
 
-        private static void AddDemographicData(GottaAskDemographicData data) { }
+        private static void AddDemographicData(GottaAskDemographicData data) { 
+            DebugLogger.Log(
+                "GottaAskSDK wont work in here. Please run on an Android or iOS device."
+            );
+         }
 
         #endregion
+
 #elif UNITY_ANDROID && !UNITY_EDITOR
         #region Android
 
