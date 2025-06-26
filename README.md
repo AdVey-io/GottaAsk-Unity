@@ -8,8 +8,8 @@ In order to use this package in your application, contact [fredrik@advey.io](mai
 
 **Currently only supporting Android!**
 
-- Unity package version: `0.0.12`
-- Android package version: `0.1.1`
+- Unity package version: `0.0.13`
+- Android package version: `0.1.2`
 - iOS package version: `N/A`
 
 ## Documentation

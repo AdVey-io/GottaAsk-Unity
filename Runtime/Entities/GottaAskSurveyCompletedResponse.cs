@@ -34,11 +34,11 @@ namespace GottaAsk
         public int amount;
 
         [SerializeField]
-        public int mulitplier;
+        public int multiplier;
 
         public override string ToString()
         {
-            return $"Amount: {amount}, Multiplier: {mulitplier}";
+            return $"Amount: {amount}, Multiplier: {multiplier}";
         }
     }
 }
