@@ -134,7 +134,7 @@ namespace GottaAsk
         {
             // Create the UnityWebRequest
             UnityWebRequest request = UnityWebRequest.Get("https://app.gottaask.io/v1/survey");
-            request.SetRequestHeader("Content-Type", "application/json"); // Required for JSON requests
+            request.SetRequestHeader("Accept", "application/json"); // Required for JSON requests
             request.SetRequestHeader("X-GOTTAASK-API-KEY", API_KEY);
             request.SetRequestHeader("X-GOTTAASK-USER-ID", USER_ID);
 
